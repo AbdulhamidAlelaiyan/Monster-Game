@@ -10,6 +10,7 @@ new Vue({
         startGame: function () {
             this.gameIsRunning = true;
             this.playerHealth = this.monsterHealth = 100;
+            this.turns = [];
         },
         attack: function (event, special = false) {
             let damage;
