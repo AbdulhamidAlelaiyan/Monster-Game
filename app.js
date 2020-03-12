@@ -30,17 +30,18 @@ new Vue({
         heal: function () {
             if (this.playerHealth <= 90) this.playerHealth += 10;
             else this.playerHealth = 100;
-            // this.monsterAttacks();
+            this.monsterAttacks();
             this.checkWin();
         },
-        giveUp: function (min, max) {
+        giveUp: function () {
             this.gameIsRunning = false;
         },
-        monsterAttacks: function (min, max) {
-            this.playerHealth -= this.calculateDamage(5, 12);
+        monsterAttacks: function () {
+            let damage = this.calculateDamage(5, 12);
+            this.playerHealth -= damage;
             this.turns.unshift({
                 isPlayer: false,
-                text: 'Player hits Monster for ' + damage,
+                text: 'Monster hits Player for ' + damage,
             });
         },
         calculateDamage: function (min, max) {
